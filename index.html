@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>CyBerPhone</title>
+    <!-- PWA and Mobile enhancements -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CyBerPhone">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              darkbg: '#0f172a',
+              darkcard: '#1e293b',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+        color: #0f172a;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        overflow-x: hidden;
+        width: 100vw;
+      }
+      .dark body {
+        background-color: #0f172a;
+        color: #f8fafc;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      @keyframes pulse-light {
+        0%, 100% { opacity: 1; filter: drop-shadow(0 0 0px rgba(59, 130, 246, 0.7)); }
+        50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.9)); }
+      }
+      .animate-pulse-light { animation: pulse-light 0.5s ease-in-out; }
+
+      @keyframes fade-in {
+        from { opacity: 0; transform: scale(0.98); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .animate-fade-in { animation: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+      .marquee { width: 100%; overflow: hidden; white-space: nowrap; position: relative; }
+      .marquee-content { display: inline-block; padding-left: 100%; animation: marquee 12s linear infinite; }
+      @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-100%); } }
+      
+      @keyframes like-heart-animation {
+        0% { transform: scale(0); opacity: 0; }
+        25% { transform: scale(1.2); opacity: 0.9; }
+        100% { transform: scale(1.5); opacity: 0; }
+      }
+      .animate-like-heart { animation: like-heart-animation 1s ease-in-out forwards; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/"
+  }
+}
+</script>
+</head>
+<body class="light">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
